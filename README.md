@@ -16,6 +16,8 @@ Este projeto foi construído como exercício de consolidação de conceitos de d
 - **H2 Database** (banco de dados em memória)
 - **Lombok**
 - **Maven** (gerenciador de dependências e build)
+- **JUnit 5**, **Mockito** e **Spring Boot Test** (testes unitários e de integração)
+- **Postman** (testes manuais da API)
 
 ## 📁 Estrutura do projeto
 
@@ -141,6 +143,28 @@ Os exemplos abaixo mostram como testar cada endpoint utilizando o **Postman**.
 | `descricao` | `String` | Descrição do produto |
 | `preco` | `Double` | Preço do produto |
 
+## ✅ Testes
+
+O projeto conta com uma suíte de testes automatizados construída com **JUnit 5**, **Mockito** e **Spring Boot Test**, além de validação manual da API via **Postman**.
+
+### Testes automatizados
+
+| Classe | Tipo | O que valida |
+|---|---|---|
+| `ProdutoTest` | Unitário | Getters, setters e `toString()` da entidade `Produto` |
+| `ProdutoControllerTest` | Unitário (`@WebMvcTest` + `MockMvc` + `@MockitoBean`) | Todos os endpoints REST do controller, com o repositório mockado |
+| `ProdutoRepositoryTest` | Integração (`@DataJpaTest`) | Consultas derivadas do Spring Data JPA (`findByNomeContaining`, `findByDescricaoContaining`, `findByPrecoContaining`) contra o banco H2 |
+
+Para executar todos os testes:
+
+```bash
+./mvnw test
+```
+
+### Testes manuais (Postman)
+
+Os testes de integração da API também foram validados manualmente via **Postman**, cobrindo o comportamento de todos os endpoints (cadastro, consulta, atualização, remoção e filtros) contra o banco H2 em execução.
+
 ## 🔭 Próximos passos
 
 - Uso de DTOs para desacoplar a API do modelo de persistência
@@ -149,7 +173,7 @@ Os exemplos abaixo mostram como testar cada endpoint utilizando o **Postman**.
 - Padronização de respostas HTTP (ex.: `404 Not Found` ao buscar um produto inexistente, em vez de retornar `null`)
 - Migração para um banco de dados persistente (ex.: PostgreSQL) em ambiente de produção
 - Documentação interativa da API com Swagger/OpenAPI
-- Cobertura de testes unitários e de integração automatizados para controller e repository (complementando os testes manuais já feitos no Postman)
+- Testes automatizados também para os cenários de exceção (ex.: atualizar/deletar um produto inexistente)
 
 ## 👤 Autor
 
