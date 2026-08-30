@@ -16,7 +16,6 @@ Este projeto foi construído como exercício de consolidação de conceitos de d
 - **H2 Database** (banco de dados em memória)
 - **Lombok**
 - **Maven** (gerenciador de dependências e build)
-- **JUnit 5** (testes)
 
 ## 📁 Estrutura do projeto
 
@@ -142,19 +141,7 @@ Os exemplos abaixo mostram como testar cada endpoint utilizando o **Postman**.
 | `descricao` | `String` | Descrição do produto |
 | `preco` | `Double` | Preço do produto |
 
-## ✅ Testes
-
-O projeto conta com a estrutura de testes do Spring Boot (`spring-boot-starter-data-jpa-test` e `spring-boot-starter-webmvc-test`). Para executar os testes:
-
-```bash
-./mvnw test
-```
-
-Além disso, os testes de integração da API foram realizados manualmente via **Postman**, validando o comportamento de todos os endpoints (cadastro, consulta, atualização, remoção e filtros) contra o banco H2 em execução.
-
 ## 🔭 Próximos passos
-
-Algumas melhorias identificadas para evolução do projeto:
 
 - Uso de DTOs para desacoplar a API do modelo de persistência
 - Validações de entrada (Bean Validation) nos endpoints de criação e atualização
@@ -166,4 +153,4 @@ Algumas melhorias identificadas para evolução do projeto:
 
 ## 👤 Autor
 
-Desenvolvido por **Markus**, estudante de Análise e Desenvolvimento de Sistemas (FIAP), como parte dos estudos em desenvolvimento backend com Java.
+Desenvolvido por **Markus**, estudante de Análise e Desenvolvimento de Sistemas (FIAP), como parte dos estudos em desenvolvimento backend com Java e Spring Boot.
